@@ -74,17 +74,43 @@ websiteInput.addEventListener("input", () => {
 // Social Links
 // ============================
 
+function updateLink(input, icon) {
+
+    const url = input.value.trim();
+
+    if (url === "") {
+
+        icon.style.display = "none";
+        icon.removeAttribute("href");
+
+    } else {
+
+        icon.style.display = "inline-block";
+        icon.href = url;
+
+    }
+
+}
+
+// Event Listeners
+
 linkedinInput.addEventListener("input", () => {
-    linkedinIcon.href = linkedinInput.value;
+    updateLink(linkedinInput, linkedinIcon);
 });
 
 githubInput.addEventListener("input", () => {
-    githubIcon.href = githubInput.value;
+    updateLink(githubInput, githubIcon);
 });
 
 instagramInput.addEventListener("input", () => {
-    instagramIcon.href = instagramInput.value;
+    updateLink(instagramInput, instagramIcon);
 });
+
+// Hide icons initially
+
+updateLink(linkedinInput, linkedinIcon);
+updateLink(githubInput, githubIcon);
+updateLink(instagramInput, instagramIcon);
 
 // ============================
 // Image Upload
